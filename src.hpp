@@ -3,16 +3,13 @@
 
 #include <any>
 
-// Forward declarations
-struct node;
-struct visitor;
-struct num_node;
-struct add_node;
-struct sub_node;
-struct mul_node;
-struct div_node;
+// Include visitor.h which should be provided by the OJ system
+// and defines node, visitor, num_node, add_node, sub_node, mul_node, div_node
+#ifndef VISITOR_H
+#include "visitor.h"
+#endif
 
-// Calculator class
+// Calculator class - implements the visitor interface for evaluation
 struct calculator : visitor {
     std::any visit_num(num_node *n) override {
         return n->number;
